@@ -25,7 +25,7 @@ function App() {
 
   return (
     <div className="app">
-      <NavBar categories = {categories} setCurrentCategory={setCurrentCategory} currentCategory = {currentCategory}/>
+      <NavBar categories = {categories} setCurrentCategory={setCurrentCategory} currentCategory = {currentCategory} />
       <Router>
         <Routes>
           <Route path="/" element={<HomePage currentCategory = {currentCategory}/>}/>

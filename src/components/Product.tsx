@@ -33,7 +33,7 @@ const Product = ({productDetails}: Props) => {
         <div className="flex gap-y-1 flex-col">
           <div className="text-xs capitalize text-gray-500">{productDetails.category}</div>
           <Link to={`/product/${productDetails.id}`}>
-            <h2 className="font-semibold mb-1 text-xs">{productDetails.title}</h2>
+            <h2 className="font-semibold mb-1 text-xs w-[90%]">{productDetails.title}</h2>
           </Link>
           <h2 className="text-xs font-semibold">{productDetails.price}</h2>
         </div>

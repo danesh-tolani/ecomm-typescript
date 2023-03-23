@@ -33,7 +33,7 @@ useEffect(() => {
 
 
   return (
-    <div className="flex flex-wrap justify-center items-center gap-x-2 gap-y-5">
+    <div className="flex flex-wrap justify-center items-center gap-x-2 gap-y-5 relative top-16">
       {products.map((product, index: number) => {
         return (
           <div key={index} className="w-[350px]">
