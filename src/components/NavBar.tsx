@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import SideBar from "./SideBar"
 import { BsBag } from "react-icons/bs"
 
@@ -9,10 +9,17 @@ type Props = {
 }
 
 const NavBar = ({categories, setCurrentCategory, currentCategory}: Props) => {
-  
+
+  const [isActive, setIsActive] = useState<boolean>(true)
   const [expanded, setExpanded] = useState<boolean>(false)
   const [sideBarIsOpen, setSideBarIsOpen] = useState<boolean>(false)
 
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      window.scrollY > 60 ? setIsActive(true): setIsActive(false)
+    })
+  })
+  
 
   const handleEnter = ():void => {
     setExpanded(true)
@@ -27,14 +34,11 @@ const NavBar = ({categories, setCurrentCategory, currentCategory}: Props) => {
   }
 
   const handleClose = (value: boolean) => {
-    setSideBarIsOpen(value)
-    console.log(value);
-    
+    setSideBarIsOpen(value)    
   }
 
-
   return (
-    <div className="group transition fixed w-full bg-white z-10">
+    <div className={`${isActive ? "bg-white py-2 shadow-md" : "bg-none "} fixed w-full z-10 transition-all group`}>
       <div className="w-full flex  justify-between items-center px-6 md:px-16 h-16 font-semibold relative">
         <p onMouseOver={() => handleEnter()} onMouseOut={() => handleExit()} className=" md:px-8 py-5 cursor-pointer">Explore</p>
         <p className="text-lg md:text-2xl">Shoppers Stop</p>
@@ -42,10 +46,10 @@ const NavBar = ({categories, setCurrentCategory, currentCategory}: Props) => {
           <BsBag className="2xl"/>
         </p>
       </div>
-      { expanded && <div className="w-full bg-white flex justify-between flex-col items-start px-20 absolute" onMouseOver={() => handleEnter()} onMouseOut={() => handleExit()}>
-          {categories.map((category) => {
+      { expanded && <div className="w-full bg-white flex justify-between flex-col items-start px-20 absolute shadow-xl z-10" onMouseOver={() => handleEnter()} onMouseOut={() => handleExit()}>
+          {categories.map((category, index) => {
             return (
-              <div className="my-2 cursor-pointer" onClick={() => handleClick(category)}>
+              <div className="my-2 cursor-pointer" key={index} onClick={() => handleClick(category)}>
                 {category.toUpperCase()}
               </div>
             )
