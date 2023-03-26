@@ -78,7 +78,7 @@ const SideBarProduct = ({item}: Props) => {
               <div className="flex flex-1 items-center justify-around ">$ {price}</div>
 
               {/* final price */}
-              <div className="flex-1 flex justify-end items-center text-primary font-medium ">${`${(newQuantity * +item.price)}`}</div>
+              <div className="flex-1 flex justify-end items-center text-primary font-medium ">${`${parseFloat((newQuantity * +item.price).toString()).toFixed(2)}`}</div>
             </div>
           </div>
 

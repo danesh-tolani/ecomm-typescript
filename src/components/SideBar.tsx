@@ -20,19 +20,15 @@ const SideBar = ({sideBarIsOpen, setSideBarIsOpen }: Props) => {
     dispatch(cartSlice.actions.clearCart())
   }
 
-  const totalAmount = () => {
-    let total = 0;
-    cart.forEach((item) => {
+  const getTotal = () => {
+    let totalPrice = 0
+    cart.forEach(item => {
       if (item.quantity !== undefined) {
-        total = +item.price * +item.quantity
-      }
+        totalPrice += +item.price * item.quantity
+      } 
     })
-    console.log(total)
-    return total
+    return totalPrice
   }
-
- const total = totalAmount()
-  
 
   return (
     <div className={`${sideBarIsOpen ? "right-0" : "-right-full"} w-full bg-white  fixed h-full  shadow-2xl md:w-[35vw] z-20 px-4 lg:px-[35px]`}>
@@ -43,7 +39,7 @@ const SideBar = ({sideBarIsOpen, setSideBarIsOpen }: Props) => {
         </div>
       </div>
       <div className="mt-4">Cart Items:</div>
-      <div className="overflow-y-scroll h-[70vh]">
+      <div className="overflow-y-scroll h-[70vh] ">
         <div className="flex flex-col justify-center items-center md:block">
           {cart.map((item)=> {
             return (
@@ -57,7 +53,7 @@ const SideBar = ({sideBarIsOpen, setSideBarIsOpen }: Props) => {
         <div className="flex w-full justify-between items-center ">
           {/* total */}
           <div className="uppercase font-semibold ">
-            <span>Total: </span>$ {total}
+            <span>Total: </span>$ {parseFloat(getTotal().toString()).toFixed(2)}
           </div>
 
           {/* clear cart icon */}

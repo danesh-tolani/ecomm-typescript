@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction, createAsyncThunk, current } from "@reduxjs/toolkit";
+import { useState } from "react";
 import { ProductData } from "../shared/type";
-
-
   
   const cartSlice = createSlice({
     name: "cart",
@@ -43,18 +42,7 @@ import { ProductData } from "../shared/type";
           state.splice(0, state.length)
         },
 
-        increaseAmount : (state, action:PayloadAction<number>) => {
-          const cartItem = state.find((item) => item.id === action.payload)
-          console.log(current(cartItem))
-          // console.log(`item ${action.payload}amount increase`)
-        },
-
-        decreaseAmount : (state, action:PayloadAction<number>) => {
-          const cartItem = state.find((item) => item.id === action.payload)
-          console.log(current(cartItem))
-          // console.log(`item ${action.payload}amount increase`)
-        }
-
+       
     }
   });
   
