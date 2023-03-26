@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 import Product from "../components/Product";
 import { ProductData } from "../shared/type";
@@ -45,6 +46,7 @@ useEffect(() => {
           )
         })}
       </div>
+      <Footer/>
     </div>
   )
 }

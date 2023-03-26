@@ -15,11 +15,9 @@ import { ProductData } from "../shared/type";
           })
           if(present === false) {
             state.push({...action.payload, quantity: 1})
-
-            // let total = 0;
-
-            // state.forEach((item) => total += +item.price)
           }
+
+          // console.log("state: ", state)
         },
 
         setQuantity: (state, action:PayloadAction<{id:number, quantity: number}>) => {
@@ -38,7 +36,7 @@ import { ProductData } from "../shared/type";
         },
 
         clearCart: (state) => {
-          console.log("clear all")
+          // console.log("clear all")
           state.splice(0, state.length)
         },
 

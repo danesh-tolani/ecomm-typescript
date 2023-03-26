@@ -28,8 +28,8 @@ function App() {
   return (
     <Provider store={store}>
       <div className="app">
-        <NavBar categories = {categories} setCurrentCategory={setCurrentCategory} currentCategory = {currentCategory} />
         <Router>
+          <NavBar categories = {categories} setCurrentCategory={setCurrentCategory} currentCategory = {currentCategory} />
           <Routes>
             <Route path="/" element={<HomePage currentCategory = {currentCategory}/>}/>
             <Route path="/product/:id" element={<ProductPage/>}/>

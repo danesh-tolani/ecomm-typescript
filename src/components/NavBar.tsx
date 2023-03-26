@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import SideBar from "./SideBar"
 import { BsBag } from "react-icons/bs"
+import { useNavigate } from "react-router-dom"
+
 
 type Props = {
   categories: string[],
@@ -20,6 +22,7 @@ const NavBar = ({categories, setCurrentCategory, currentCategory}: Props) => {
     })
   })
   
+  const navigate = useNavigate();
 
   const handleEnter = ():void => {
     setExpanded(true)
@@ -41,7 +44,7 @@ const NavBar = ({categories, setCurrentCategory, currentCategory}: Props) => {
     <div className={`${isActive ? "bg-white py-2 shadow-md" : "bg-none "} fixed w-full z-10 transition-all group`}>
       <div className="w-full flex  justify-between items-center px-6 md:px-16 h-16 font-semibold relative">
         <p onMouseOver={() => handleEnter()} onMouseOut={() => handleExit()} className=" md:px-8 py-5 cursor-pointer">Explore</p>
-        <p className="text-lg md:text-2xl">Shoppers Stop</p>
+        <p className="text-lg md:text-2xl cursor-pointer" onClick={() => navigate("/")}>Shoppers Stop</p>
         <p onClick={() => handleClose(sideBarIsOpen === false ? true : false)} className="cursor-pointer flex items-center justify-center gap-x-3">Cart
           <BsBag className="2xl"/>
         </p>
