@@ -5,6 +5,7 @@ import cartSlice from "../features/cartSlice";
 import  SideBarProduct  from "../components/SideBarProduct"
 import {FiTrash2} from "react-icons/fi"
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 type Props = {
   sideBarIsOpen: boolean,
@@ -61,6 +62,10 @@ const SideBar = ({sideBarIsOpen, setSideBarIsOpen }: Props) => {
             <FiTrash2 />
           </div>
         </div>
+        <p className="bg-gray-200 flex p-4 justify-center items-center text-primary w-full font-medium ">View Cart</p>
+        <p className="bg-primary text-gray-200 flex p-4 justify-center items-center text-primary w-full font-medium ">Checkout</p>
+        {/* <Link to="/" className="bg-gray-200 flex p-4 justify-center items-center text-primary w-full font-medium ">View Cart</Link> */}
+        {/* <Link to="/" className="bg-gray-200 flex p-4 justify-center items-center text-primary w-full font-medium ">Checkout</Link> */}
       </div>
       </div>
 
