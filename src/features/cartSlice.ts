@@ -17,7 +17,6 @@ import { ProductData } from "../shared/type";
             state.push({...action.payload, quantity: 1})
           }
 
-          // console.log("state: ", state)
         },
 
         setQuantity: (state, action:PayloadAction<{id:number, quantity: number}>) => {
@@ -36,7 +35,6 @@ import { ProductData } from "../shared/type";
         },
 
         clearCart: (state) => {
-          // console.log("clear all")
           state.splice(0, state.length)
         },
 

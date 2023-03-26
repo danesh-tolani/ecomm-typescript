@@ -21,7 +21,6 @@ module.exports = {
       },
       backgroundImage: {
         hero: "url('/src/assets/bg_hero.svg')",
-        // 'footer-texture': "url('/img/footer-texture.png')",
       }
     },
   },

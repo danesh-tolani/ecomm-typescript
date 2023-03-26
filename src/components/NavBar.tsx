@@ -49,7 +49,7 @@ const NavBar = ({categories, setCurrentCategory, currentCategory}: Props) => {
           <BsBag className="2xl"/>
         </p>
       </div>
-      { expanded && <div className="w-full bg-white flex justify-between flex-col items-start px-20 absolute shadow-xl z-10" onMouseOver={() => handleEnter()} onMouseOut={() => handleExit()}>
+      { expanded && <div className="w-full bg-white flex justify-between flex-col items-start pl-6 md:px-20 absolute shadow-xl z-10 " onMouseOver={() => handleEnter()} onMouseOut={() => handleExit()}>
           {categories.map((category, index) => {
             return (
               <div className="my-2 cursor-pointer" key={index} onClick={() => handleClick(category)}>

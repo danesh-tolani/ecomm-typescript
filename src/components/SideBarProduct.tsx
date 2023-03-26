@@ -21,7 +21,6 @@ const SideBarProduct = ({item}: Props) => {
     const handleIncrease = () => {
       setNewQuantity(newQuantity !== null ? (newQuantity => newQuantity + 1) : 0)
       dispatch(cartSlice.actions.setQuantity({id: item.id, quantity: newQuantity + 1}))
-      // console.log(newQuantity, item.price)
   }
     const handleDecrease = () => {
       setNewQuantity(newQuantity !== null ? (newQuantity => newQuantity - 1) : 0)
@@ -86,9 +85,6 @@ const SideBarProduct = ({item}: Props) => {
         </div>
 
       </>
-    // <div>
-    //     {item.title}
-    // </div>
     )
   }
   

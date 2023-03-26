@@ -11,10 +11,7 @@ type Props = {}
 
 const ProductPage = (props: Props) => {
 
-  // const [product, setProduct] = useState(undefined)
-
   const {id} = useParams()
-  // console.log(id)
   
   const [product, setProduct] = useState<ProductData>();
 
@@ -29,8 +26,6 @@ useEffect(() => {
   productapi();
 }, [id]);
   
-// console.log(product)
-
 const dispatch: AppDispatch = useDispatch();
 const handleClick = () => {
   if(product) {

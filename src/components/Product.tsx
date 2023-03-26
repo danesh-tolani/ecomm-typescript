@@ -18,7 +18,7 @@ const Product = ({productDetails}: Props) => {
 
   return (
     <>
-      <div className=" h-[300px] w-[300px] md:h-[300px] md:w-[300px] mb-4 relative overflow-hidden group transition border">
+      <div className=" h-[300px] w-[300px] mb-4 relative overflow-hidden group transition border ">
         <div className="w-full h-full flex justify-center items-center">
           <div className="w-[200px] mx-auto flex justify-center items-center">
           <img src={productDetails.image} alt={productDetails.title} className="max-h-[160px] group-hover:scale-110 transition duration-300 p-4" />
@@ -37,14 +37,14 @@ const Product = ({productDetails}: Props) => {
           </Link>
         </div>
 
-        {/* title and price */}
       </div>
+        {/* title and price */}
         <div className="flex gap-y-1 flex-col">
           <div className="text-xs capitalize text-gray-500">{productDetails.category}</div>
           <Link to={`/product/${productDetails.id}`}>
             <h2 className="font-semibold mb-1 text-xs w-[90%]">{productDetails.title}</h2>
           </Link>
-          <h2 className="text-xs font-semibold">{productDetails.price}</h2>
+          <h2 className="text-xs font-semibold">${productDetails.price}</h2>
         </div>
     </>
   )

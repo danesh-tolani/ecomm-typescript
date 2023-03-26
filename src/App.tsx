@@ -14,7 +14,6 @@ function App() {
 
   const [categories, setCategories] = useState<string[]>([]);
   const [currentCategory, setCurrentCategory] = useState<string>("")
-  // console.log(currentCategory)
 
   const categoryapi = async () => {
     const data = await axios.get("https://fakestoreapi.com/products/categories")
