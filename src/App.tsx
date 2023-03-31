@@ -1,25 +1,25 @@
-import axios from "axios"
-import { useEffect, useState } from "react"
-import {BrowserRouter as Router, Route, Routes} from "react-router-dom"
-import Footer from "./components/Footer"
-import Header from "./components/Header"
-import NavBar from "./components/NavBar"
-import SideBar from "./components/SideBar"
-import HomePage from "./pages/HomePage"
-import ProductPage from "./pages/ProductPage"
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import NavBar from "./components/NavBar";
+import SideBar from "./components/SideBar";
+import HomePage from "./pages/HomePage";
+import ProductPage from "./pages/ProductPage";
 import { Provider } from "react-redux";
-import store from "./app/store"
+import store from "./app/store";
+import Login from "./components/Login";
 
 function App() {
-
   const [categories, setCategories] = useState<string[]>([]);
-  const [currentCategory, setCurrentCategory] = useState<string>("")
+  const [currentCategory, setCurrentCategory] = useState<string>("");
 
   const categoryapi = async () => {
-    const data = await axios.get("https://fakestoreapi.com/products/categories")
-    setCategories(data.data)    
+    const data = await axios.get("https://fakestoreapi.com/products/categories");
+    setCategories(data.data);
   };
-  
+
   useEffect(() => {
     categoryapi();
   }, [currentCategory]);
@@ -28,16 +28,27 @@ function App() {
     <Provider store={store}>
       <div className="app">
         <Router>
-          <NavBar categories = {categories} setCurrentCategory={setCurrentCategory} currentCategory = {currentCategory} />
+          <NavBar
+            categories={categories}
+            setCurrentCategory={setCurrentCategory}
+            currentCategory={currentCategory}
+          />
+          {/* <Login /> */}
           <Routes>
-            <Route path="/" element={<HomePage currentCategory = {currentCategory}/>}/>
-            <Route path="/product/:id" element={<ProductPage/>}/>
-          </Routes>  
-        {/* <SideBar/> */}
-        </Router>      
+            <Route
+              path="/"
+              element={<HomePage currentCategory={currentCategory} />}
+            />
+            <Route
+              path="/product/:id"
+              element={<ProductPage />}
+            />
+          </Routes>
+          {/* <SideBar/> */}
+        </Router>
       </div>
     </Provider>
-  )
+  );
 }
 
-export default App
+export default App;
