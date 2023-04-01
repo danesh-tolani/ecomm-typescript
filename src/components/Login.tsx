@@ -97,7 +97,7 @@ const Login = ({ sideBarIsOpen, setSideBarIsOpen, setIsLoggedIn, isLoggedIn }: P
   };
 
   return (
-    <div className={`${sideBarIsOpen ? "right-0" : "-right-full"} w-full bg-white  fixed h-full  shadow-2xl md:w-[35vw] z-20 px-4 lg:px-[35px] `}>
+    <div className={`${sideBarIsOpen ? "right-0" : "-right-full"} w-full bg-white  fixed h-full  shadow-2xl md:w-[40vw] z-20 px-4 lg:px-[35px] `}>
       <div className="flex items-center justify-between py-6 border-b flex-col gap-y-3">
         <p className="text-center">Please login to add to cart</p>
         <input
