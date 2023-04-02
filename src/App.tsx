@@ -12,7 +12,7 @@ import Login from "./components/Login";
 import Success from "./pages/Success";
 
 function App() {
-  const [categories, setCategories] = useState<string[]>([]);
+  const [categories, setCategories]  = useState<string[]>([]);
   const [currentCategory, setCurrentCategory] = useState<string>("");
 
   const categoryapi = async () => {
