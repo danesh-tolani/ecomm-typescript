@@ -60,8 +60,7 @@ const SideBar = ({ sideBarIsOpen, setSideBarIsOpen }: Props) => {
         return res.json().then((json) => Promise.reject(json));
       })
       .then((res) => {
-        console.log("lol", res);
-        // window.location = res.url;
+        window.location = res.url;
       })
       .catch((e) => {
         console.log(e.error);
