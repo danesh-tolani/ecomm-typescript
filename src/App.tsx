@@ -2,7 +2,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer";
-import Header from "./components/Header";
 import NavBar from "./components/NavBar";
 import SideBar from "./components/SideBar";
 import HomePage from "./pages/HomePage";
@@ -10,6 +9,7 @@ import ProductPage from "./pages/ProductPage";
 import { Provider } from "react-redux";
 import store from "./app/store";
 import Login from "./components/Login";
+import Success from "./pages/Success";
 
 function App() {
   const [categories, setCategories] = useState<string[]>([]);
@@ -33,7 +33,6 @@ function App() {
             setCurrentCategory={setCurrentCategory}
             currentCategory={currentCategory}
           />
-          {/* <Login /> */}
           <Routes>
             <Route
               path="/"
@@ -43,8 +42,11 @@ function App() {
               path="/product/:id"
               element={<ProductPage />}
             />
+            <Route
+              path="/success"
+              element={<Success />}
+            />
           </Routes>
-          {/* <SideBar/> */}
         </Router>
       </div>
     </Provider>

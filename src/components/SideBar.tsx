@@ -25,6 +25,12 @@ const SideBar = ({ sideBarIsOpen, setSideBarIsOpen }: Props) => {
     getTotal();
   }, [cart]);
 
+  const data = cart.map((item) => {
+    if (item.quantity !== undefined) {
+      return { name: item.title, unit_amount: +item.price * item.quantity * 100, quantity: item.quantity };
+    }
+  });
+
   const clearAll = (): void => {
     dispatch(cartSlice.actions.clearCart());
   };
@@ -39,18 +45,29 @@ const SideBar = ({ sideBarIsOpen, setSideBarIsOpen }: Props) => {
     });
   };
 
-  // const checkout = async () => {
-  //   try {
-  //     const client_secret: unknown = await paymentIntent("http://127.0.0.1:8000/secret", total);
-  //     navigate("/checkout", {
-  //       state: {
-  //         client_secret,
-  //       },
-  //     });
-  //   } catch (error) {
-  //     alert("An error has occurred; try again later!");
-  //   }
-  // };
+  const checkOut = () => {
+    fetch("http://localhost:4000/create-checkout-session", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        data,
+      }),
+    })
+      // if successful request then redirect
+      .then((res) => {
+        if (res.ok) return res.json();
+        return res.json().then((json) => Promise.reject(json));
+      })
+      .then((res) => {
+        console.log("lol", res);
+        // window.location = res.url;
+      })
+      .catch((e) => {
+        console.log(e.error);
+      });
+  };
 
   return (
     <div className={`${sideBarIsOpen ? "right-0" : "-right-full"} w-full bg-white  fixed h-full  shadow-2xl md:w-[40vw] z-20 md:px-[35px] `}>
@@ -90,7 +107,11 @@ const SideBar = ({ sideBarIsOpen, setSideBarIsOpen }: Props) => {
             </div>
           </div>
           <p className="bg-gray-200 flex p-4 justify-center items-center text-primary w-full font-medium ">View Cart</p>
-          <p className="bg-primary text-gray-200 flex p-4 justify-center items-center w-full font-medium ">Checkout</p>
+          <p
+            className="bg-primary text-gray-200 flex p-4 justify-center items-center w-full font-medium cursor-pointer"
+            onClick={checkOut}>
+            Checkout
+          </p>
           {/* <Link to="/" className="bg-gray-200 flex p-4 justify-center items-center text-primary w-full font-medium ">View Cart</Link> */}
           {/* <Link to="/" className="bg-gray-200 flex p-4 justify-center items-center text-primary w-full font-medium ">Checkout</Link> */}
         </div>

@@ -16,11 +16,11 @@ const NavBar = ({ categories, setCurrentCategory, currentCategory }: Props) => {
   const [sideBarIsOpen, setSideBarIsOpen] = useState<boolean>(false);
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
-  // useEffect(() => {
-  //   window.addEventListener("scroll", () => {
-  //     window.scrollY > 60 ? setIsActive(true) : setIsActive(false);
-  //   });
-  // });
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      window.scrollY > 60 ? setIsActive(true) : setIsActive(false);
+    });
+  });
 
   const navigate = useNavigate();
 
@@ -60,7 +60,6 @@ const NavBar = ({ categories, setCurrentCategory, currentCategory }: Props) => {
           Cart
           <BsBag className="2xl" />
         </p>
-        {/* <Login /> */}
       </div>
       {expanded && (
         <div

@@ -27,8 +27,6 @@ const Login = ({ sideBarIsOpen, setSideBarIsOpen, setIsLoggedIn, isLoggedIn }: P
   const handleChange = (e: any) => {
     let passwordError = "";
 
-    console.log(e.target.value);
-
     if (e.target.id === "password" && password.length < 7) {
       passwordError = "Password should be more than 8 characters";
     }
@@ -44,7 +42,6 @@ const Login = ({ sideBarIsOpen, setSideBarIsOpen, setIsLoggedIn, isLoggedIn }: P
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredentials) => {
         const user = userCredentials.user;
-        console.log(user);
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -70,14 +67,11 @@ const Login = ({ sideBarIsOpen, setSideBarIsOpen, setIsLoggedIn, isLoggedIn }: P
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log(user);
         if (user) {
           setIsLoggedIn(true);
         }
       })
       .catch((error) => {
-        console.log(error.code);
-
         const errorCode = error.code;
         const errorMessage = error.message;
 
@@ -162,6 +156,3 @@ const Login = ({ sideBarIsOpen, setSideBarIsOpen, setIsLoggedIn, isLoggedIn }: P
 };
 
 export default Login;
-{
-  /* <div onClick={() => createUser("danesh.tolani@gmail.com", "danes@123")}>Login</div> */
-}

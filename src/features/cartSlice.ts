@@ -16,7 +16,6 @@ const cartSlice = createSlice({
       if (present === false) {
         state.push({ ...action.payload, quantity: 1 });
       }
-      console.log(current(state));
     },
 
     setQuantity: (state, action: PayloadAction<{ id: number; quantity: number }>) => {
