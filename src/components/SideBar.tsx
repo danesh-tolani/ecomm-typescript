@@ -8,7 +8,6 @@ import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "./Footer";
 import { useEffect, useState } from "react";
-import { paymentIntent } from "../../utils/payment-intent-utils";
 
 type Props = {
   sideBarIsOpen: boolean;
