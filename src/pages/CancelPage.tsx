@@ -5,6 +5,10 @@ type Props = {};
 const CancelPage = (props: Props) => {
   const navigate = useNavigate();
 
+  setTimeout(() => {
+    navigate("/");
+  }, 5000);
+
   return (
     <div className="flex flex-col w-[100vw] h-[100vh] justify-center items-center border border-red-500">
       <p className="text-3xl text-center">Sorry, Payment failed</p>
