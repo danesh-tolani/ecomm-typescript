@@ -45,7 +45,7 @@ const SideBar = ({ sideBarIsOpen, setSideBarIsOpen }: Props) => {
   };
 
   const checkOut = () => {
-    fetch("http://localhost:4000/create-checkout-session", {
+    fetch("https://ecomm-stripe-backend.netlify.app/.netlify/functions/server/create-checkout-session", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -56,6 +56,7 @@ const SideBar = ({ sideBarIsOpen, setSideBarIsOpen }: Props) => {
     })
       // if successful request then redirect
       .then((res) => {
+        console.log(res);
         if (res.ok) return res.json();
         return res.json().then((json) => Promise.reject(json));
       })
