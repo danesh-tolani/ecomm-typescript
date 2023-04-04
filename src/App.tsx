@@ -9,10 +9,10 @@ import ProductPage from "./pages/ProductPage";
 import { Provider } from "react-redux";
 import store from "./app/store";
 import Login from "./components/Login";
-import Success from "./pages/Success";
+import SuccessPage from "./pages/SuccessPage";
 
 function App() {
-  const [categories, setCategories]  = useState<string[]>([]);
+  const [categories, setCategories] = useState<string[]>([]);
   const [currentCategory, setCurrentCategory] = useState<string>("");
 
   const categoryapi = async () => {
@@ -39,12 +39,12 @@ function App() {
               element={<HomePage currentCategory={currentCategory} />}
             />
             <Route
-              path="/product/:id"
-              element={<ProductPage />}
+              path="/success"
+              element={<SuccessPage />}
             />
             <Route
-              path="/success"
-              element={<Success />}
+              path="/product/:id"
+              element={<ProductPage />}
             />
           </Routes>
         </Router>

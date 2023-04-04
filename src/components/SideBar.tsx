@@ -45,7 +45,7 @@ const SideBar = ({ sideBarIsOpen, setSideBarIsOpen }: Props) => {
   };
 
   const checkOut = () => {
-    fetch("https://ecomm-stripe-backend.netlify.app/.netlify/functions/server/create-checkout-session", {
+    fetch("http://localhost:9000/.netlify/functions/server/create-checkout-session", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
