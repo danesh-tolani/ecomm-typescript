@@ -10,6 +10,7 @@ import { Provider } from "react-redux";
 import store from "./app/store";
 import Login from "./components/Login";
 import SuccessPage from "./pages/SuccessPage";
+import CancelPage from "./pages/CancelPage";
 
 function App() {
   const [categories, setCategories] = useState<string[]>([]);
@@ -47,6 +48,10 @@ function App() {
             <Route
               path="/success"
               element={<SuccessPage />}
+            />
+            <Route
+              path="/fail"
+              element={<CancelPage />}
             />
           </Routes>
         </Router>
