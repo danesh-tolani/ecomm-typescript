@@ -39,12 +39,14 @@ function App() {
               element={<HomePage currentCategory={currentCategory} />}
             />
             <Route
-              path="/success"
-              element={<SuccessPage />}
-            />
-            <Route
               path="/product/:id"
               element={<ProductPage />}
+            />
+          </Routes>
+          <Routes>
+            <Route
+              path="/success"
+              element={<SuccessPage />}
             />
           </Routes>
         </Router>
